@@ -81,8 +81,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-The backend API will be available at `http://localhost:8000`
-- Admin panel: `http://localhost:8000/admin`
+The backend API will be available at `http://localhost:8000/api`
+The backend live API will be available at `https://hrms-lite-1a2b.onrender.com/api`
+
 
 ### 3. Frontend Setup
 
