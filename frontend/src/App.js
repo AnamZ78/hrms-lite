@@ -9,8 +9,9 @@ import AttendanceForm from './components/AttendanceForm';
 import AttendanceView from './components/AttendanceView';
 import Dashboard from './components/Dashboard';
 import './App.css';
+import os from 'os';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000/api';
 
 const theme = createTheme({
   palette: {
