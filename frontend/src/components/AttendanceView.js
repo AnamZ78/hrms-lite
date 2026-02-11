@@ -41,7 +41,7 @@ const AttendanceView = ({ employee, onBack }) => {
     } finally {
       setLoading(false);
     }
-  }, [employee.id, dateFrom, dateTo]);
+  }, [employee.employee_id, dateFrom, dateTo]);
 
   useEffect(() => {
     fetchAttendances();
