@@ -29,8 +29,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
-# ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -143,8 +143,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# settings.py
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost:3000",  # local React
     "http://127.0.0.1:3000",
-    "https://hrms-system-lite.vercel.app",
+    "https://hrms-system-lite.vercel.app",  # Vercel frontend
 ]
+
+# If you need cookies/auth headers
+CORS_ALLOW_CREDENTIALS = True
+
