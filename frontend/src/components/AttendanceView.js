@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000/api';
 
 const AttendanceView = ({ employee, onBack }) => {
   const [attendances, setAttendances] = useState([]);
