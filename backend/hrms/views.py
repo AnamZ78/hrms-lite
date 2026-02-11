@@ -3,11 +3,16 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError, NotFound
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from .models import Employee, Attendance
 from .serializers import EmployeeSerializer, AttendanceSerializer
+from rest_framework.permissions import AllowAny
 
+@method_decorator(csrf_exempt, name='dispatch')
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
+    permission_classes = [AllowAny]
     serializer_class = EmployeeSerializer
 
     def create(self, request, *args, **kwargs):
@@ -48,8 +53,10 @@ class EmployeeViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return Response({'detail': 'An unexpected error occurred while fetching attendances.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+@method_decorator(csrf_exempt, name='dispatch')
 class AttendanceViewSet(viewsets.ModelViewSet):
     queryset = Attendance.objects.all()
+    permission_classes = [AllowAny]
     serializer_class = AttendanceSerializer
 
     def create(self, request, *args, **kwargs):
